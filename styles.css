@@ -1,0 +1,9 @@
+
+/* :root {
+    color-scheme: light dark;
+    --color-background: light-dark(#ffffff,#000000);
+} */
+
+body {
+    background-color: rgb(255, 255, 255);
+}
