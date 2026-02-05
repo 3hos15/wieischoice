@@ -1,33 +1,16 @@
-
-/* :root {
-    color-scheme: light dark;
-    --color-background: light-dark(#ffffff,#000000);
-} */
-
-body {
-    background-color: rgb(191, 169, 197);
-    margin: 0;
-    padding: 0;
+:root {
+  color-scheme: light dark;
+  --color-background: light-dark(#ffffff,#000000);
+  --img-border: light-dark(#000000, #ffffff);
+  --text-color: light-dark(#000000, #ffffff);
 }
 
-
-#cursorTrail {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 1; 
-  }
-  
-#cursorTrail img {
-    position: fixed;
-    width: 35em;          /* change size here */
-    height: auto;
-    transform: translate(-50%, -50%);
-    will-change: transform;
-    user-select: none;
-    -webkit-user-drag: none;
-  }
-
+body {
+    background-color: var( --color-background);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
 
 h1, h2, p {
     display: flex;
@@ -35,13 +18,74 @@ h1, h2, p {
     align-items: flex-start;
   }
 
-
-.guessPassword{
-    z-index: 9999;
-    position: relative;
-    z-index: 10;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-
+.travelPics {
+  height: 90vh;
 }
+
+.gallery {
+  display: flex;
+  padding: 10px;
+  padding-top: 3em;
+  animation: --gallerymove 10s linear infinite;
+  animation-name: --gallerymove;
+  animation-duration: 65s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+}
+
+.gallery img {
+  margin: 0.9em;
+  display: block;
+  width: auto; 
+  outline: 1px solid; 
+  outline-color: var(--img-border);
+  outline-offset: 5px; 
+  border-radius: 2px;
+}
+
+@keyframes --gallerymove {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-600px * 10));
+  }
+}
+
+
+.headGame {
+  margin-top: 3rem;
+  display: grid;
+  gap: 1rem;
+  
+}
+
+.scramble {
+  width: clamp(50px, 8vw, 90px);
+  cursor: grab;
+  user-select: none;
+  -webkit-user-drag: element;
+  margin-right: 10px;
+  position: absolute;
+}
+
+.dropHead {
+  border-bottom: 1px solid white;
+  position: relative;
+  margin-top: 1rem;
+  /* overflow: hidden; */
+  height: 90vh; 
+}
+
+.placedPart {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  margin-right: 0; 
+}
+
+.placedPart img {
+  display: block;
+}
+
+ 

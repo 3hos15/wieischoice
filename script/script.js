@@ -1,70 +1,72 @@
-const trail = document.getElementById("cursorTrail");
 
-const images = [
-  "images/castle.JPG",
-  "images/cathedral.JPG",
-  "images/grave.jpg",
-  "images/graveview.jpg",
-  "images/horses.jpg",
-  "images/busker.jpg",
-  "images/canon.jpg",
-  "images/canonview.jpg",
-  "images/victoriastreet.jpg",
-  "images/museum.JPG"
-];
+  // const gameSection = document.querySelector(".headGame");
+  // const headArea = gameSection.querySelector("#head");
+  // const faceParts = gameSection.querySelectorAll(".scramble");
 
-// arrays to store elements and positions
-const imageElements = [];
-const imageX = [];
-const imageY = [];
+  // let currentlyDraggedPart = null;
 
-// let nameGuess = document.querySelector('.guess');
+  // faceParts.forEach(function (part) {
+  //   part.setAttribute("draggable", "true");
+
+  //   part.addEventListener("dragstart", function () {
+  //     part.src = part.currentSrc; 
+  //     currentlyDraggedPart = part;
+  //   });
+  // });
+
+  // headArea.addEventListener("dragover", function (event) {
+  //   event.preventDefault();
+  // });
+
+  // headArea.addEventListener("drop", function (event) {
+  //   event.preventDefault();
+  //   if (!currentlyDraggedPart) return;
+
+  //   headArea.appendChild(currentlyDraggedPart);
+  //   currentlyDraggedPart.classList.add("placedPart");
+
+  //   const headPosition = headArea.getBoundingClientRect();
+  //   const dropX = event.clientX - headPosition.left;
+  //   const dropY = event.clientY - headPosition.top;
+
+  //   currentlyDraggedPart.style.left = dropX + "px";
+  //   currentlyDraggedPart.style.top = dropY + "px";
+
+  //   currentlyDraggedPart = null;
+  // });
 
 
-for (let i = 0; i < images.length; i++) {
-  const img = document.createElement("img");
-  img.src = images[i];
-  trail.append(img);
+const gameSection = document.querySelector(".headGame");
+const headArea = gameSection.querySelector("#head");
+const faceParts = gameSection.querySelectorAll(".scramble");
 
-  imageElements.push(img);
-  imageX.push(0);
-  imageY.push(0);
-}
+let currentlyDragged = null;
 
-let mouseX = 0;
-let mouseY = 0;
+faceParts.forEach(function (img) {
+  img.setAttribute("draggable", "true");
 
-window.addEventListener("mousemove", function (e) {
-  mouseX = e.clientX;
-  mouseY = e.clientY;
+  img.addEventListener("dragstart", function () {
+    currentlyDragged = img.closest("picture") || img; 
+  });
 });
 
-function animate() {
-    let x = mouseX;
-    let y = mouseY;
-  
-    const spacing = 60; 
-    const speed = 0.08; 
-  
-    for (let i = 0; i < imageElements.length; i++) {
-      const targetX = x - spacing;
-      const targetY = y + spacing;
-  
-      imageX[i] += (targetX - imageX[i]) * speed;
-      imageY[i] += (targetY - imageY[i]) * speed;
-  
-      imageElements[i].style.transform =
-        "translate(-50%, -50%) translate(" + imageX[i] + "px, " + imageY[i] + "px)";
-  
-      x = imageX[i]; //images flwoing
-      y = imageY[i];
-    }
-  
-    requestAnimationFrame(animate);
-  }
-  
+headArea.addEventListener("dragover", function (event) {
+  event.preventDefault();
+});
 
-animate();
+headArea.addEventListener("drop", function (event) {
+  event.preventDefault();
+  if (!currentlyDragged) return;
 
+  headArea.appendChild(currentlyDragged);
+  currentlyDragged.classList.add("placedPart");
 
+  const rect = headArea.getBoundingClientRect();
+  const x = event.clientX - rect.left;
+  const y = event.clientY - rect.top;
 
+  currentlyDragged.style.left = x + "px";
+  currentlyDragged.style.top = y + "px";
+
+  currentlyDragged = null;
+});
