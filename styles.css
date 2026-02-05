@@ -5,5 +5,43 @@
 } */
 
 body {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(191, 169, 197);
+    margin: 0;
+    padding: 0;
+}
+
+
+#cursorTrail {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1; 
+  }
+  
+#cursorTrail img {
+    position: fixed;
+    width: 35em;          /* change size here */
+    height: auto;
+    transform: translate(-50%, -50%);
+    will-change: transform;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+
+
+h1, h2, p {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+
+.guessPassword{
+    z-index: 9999;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
 }
