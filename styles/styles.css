@@ -1,3 +1,14 @@
+
+@font-face {
+  font-family: Ledlight;
+  src: url("../fonts/LEDLIGHT.otf") format("opentype");
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
+
 :root {
   color-scheme: light dark;
   --color-background: light-dark(#ffffff,#000000);
@@ -6,17 +17,45 @@
 }
 
 body {
-    background-color: var( --color-background);
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
+  background-color: var( --color-background);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
-h1, h2, p {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
+main > section {
+  min-height: 100vh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+main > section:nth-of-type(1) {
+  z-index: 1; 
   }
+main > section:nth-of-type(2) { 
+  z-index: 2; 
+}
+main > section:nth-of-type(3) { 
+  z-index: 3; 
+}
+main > section:nth-of-type(4) { 
+  z-index: 4; 
+}
+
+
+h1, h2 {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: "Ledlight";
+  font-size: 4em;
+  }
+
+p {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
 
 .travelPics {
   height: 90vh;
@@ -24,8 +63,8 @@ h1, h2, p {
 
 .gallery {
   display: flex;
-  padding: 10px;
-  padding-top: 3em;
+  /* padding: 10px;
+  padding-top: 3em; */
   animation: --gallerymove 10s linear infinite;
   animation-name: --gallerymove;
   animation-duration: 65s;
@@ -35,13 +74,13 @@ h1, h2, p {
 }
 
 .gallery img {
-  margin: 0.9em;
+  margin: 0.5em;
   display: block;
   width: auto; 
   outline: 1px solid; 
   outline-color: var(--img-border);
-  outline-offset: 5px; 
-  border-radius: 2px;
+  outline-offset: 3px; 
+  border-radius: 5px;
 }
 
 @keyframes --gallerymove {
@@ -60,27 +99,26 @@ h1, h2, p {
   gap: 1rem;
   
 }
-
 .scramble {
-  width: clamp(50px, 8vw, 90px);
+  width: clamp(90px, 8vw, 100px);
   cursor: grab;
   user-select: none;
   -webkit-user-drag: element;
   margin-right: 10px;
-  position: absolute;
+  position: static; /* important */
 }
 
+
 .dropHead {
-  border-bottom: 1px solid white;
   position: relative;
   margin-top: 1rem;
   /* overflow: hidden; */
-  height: 90vh; 
+  height: 90vh;
 }
 
 .placedPart {
   position: absolute;
-  transform: translate(-50%, -50%);
+  transform: none;
   margin-right: 0; 
 }
 
@@ -88,4 +126,105 @@ h1, h2, p {
   display: block;
 }
 
+
+.star-five {
+  margin-left: 1.5em;
+  position: absolute;
+  display: block;
+  color: var(--img-border);
+  width: 0;
+  height: 0;
+  border-right: 18px solid transparent;
+  border-bottom: 13px solid var(--img-border);
+  border-left: 18px solid transparent;
+  transform: rotate(65deg);
+  z-index: 999;
+}
+
+.star-five:hover {
+  transform: rotate(300deg);
+  animation-name: --star-fivemove;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+
+}
+
+
+@keyframes --star-fivemove {
+  0% {
+    transform: rotate(65deg);
+  }
+  50% {
+    transform: rotate(360deg);
+    /* transform: translate(10em 10em); */
+  }
+
+  100% {
+    transform: rotate(65deg);
+  }
+}
+
+.star-five:before {
+  border-bottom: 14px solid var(--img-border);
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  position: absolute;
+  height: 0;
+  width: 0;
+  top: -8px;
+  left: -12px;
+  display: block;
+  content: '';
+  transform: rotate(-35deg);
+}
+
+.star-five:after {
+  content: '';
+  position: absolute;
+  display: block;
+  color: var(--img-border);
+  top: 1px;
+  left: -19px;
+  width: 0;
+  height: 0;
+  border-right: 18px solid transparent;
+  border-bottom: 13px solid var(--img-border);
+  border-left: 18px solid transparent;
+  transform: rotate(-70deg);
+
+}
+
+
+@media (max-width: 30em) {
+
+  .travelPics {
+    height: 50vh;
+  }
+
+  .gallery img {
+    margin: 0.9em;
+    display: block;
+    width: auto; 
+    outline: 1px solid; 
+    outline-color: var(--img-border);
+    outline-offset: 5px; 
+    border-radius: 2px;
+  }
+
+  .gallery img {
+    width: 20em;
+    outline: .8px solid; 
+  }
  
+  @keyframes --gallerymove {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-300px * 10));
+    }
+  }
+}
+
