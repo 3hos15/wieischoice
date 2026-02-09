@@ -8,11 +8,22 @@
 </head>
 
 <body>
+  <header>
+    <nav class="tabs">
+      <button type="button" data-tab="travelPics" class="tab active">?</button>
+      <button type="button" data-tab="headGame" class="tab">?</button>
+      <button type="button" data-tab="films" class="tab">?</button>
+      <button type="button" data-tab="leren" class="tab">?</button>
+    </nav>
+    <h2></h2>
+    <h1>wie is choice</h1>
+  </header>
+  
     <main>
-        <div class="star-five"></div>
+        <!-- <div class="star-five"></div> -->
+        <section id="travel" class="travelPics">
 
-        <section class="travelPics">
-            <h1>wie is choice</h1>
+
             <div class="gallery">
 
               <picture>
@@ -67,9 +78,7 @@
             </div>
           </section>
           
-          <section class="headGame">
-            <h2>oh jee</h2>
-          
+          <section id="scramble" class="headGame">
             <div id="head" class="dropHead">
                 <picture>
                     <source srcset="" media="(prefers-color-scheme: light)">
@@ -108,8 +117,19 @@
     
             </div>
           </section>
-          <section>
-            <h2>leerdoelen</h2>
+          <section id="films" class="films">
+            <ul>
+              <li>
+                <h2 class="studentname">naam student</h2>
+                <p class="studentfavfilm">fav film</p>
+                <img class="studentfilmimg" src="images/challengers.jpg" alt="">
+              </li>
+            </ul>
+          </section>
+
+          <section id="leren" class="leren">
+          
+            
           </section>
 
     </main>

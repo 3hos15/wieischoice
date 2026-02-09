@@ -1,12 +1,10 @@
+* {
+  box-sizing: border-box;
+}
 
 @font-face {
   font-family: Ledlight;
   src: url("../fonts/LEDLIGHT.otf") format("opentype");
-}
-
-html {
-  scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
 }
 
 :root {
@@ -16,6 +14,15 @@ html {
   --text-color: light-dark(#000000, #ffffff);
 }
 
+:root:has([value="light"]:checked) {
+	color-scheme: light;
+}
+
+:root:has([value="dark"]:checked) {
+	color-scheme: dark;
+}
+
+
 body {
   background-color: var( --color-background);
   margin: 0;
@@ -23,15 +30,16 @@ body {
   overflow-x: hidden;
 }
 
-main > section {
-  min-height: 100vh;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
 }
 
 main > section:nth-of-type(1) {
-  z-index: 1; 
-  }
+  z-index: 999; 
+}
 main > section:nth-of-type(2) { 
   z-index: 2; 
 }
@@ -43,13 +51,70 @@ main > section:nth-of-type(4) {
 }
 
 
+main {
+  /* position: relative; */
+  min-height: 100vh;
+}
+
+main > section {
+  position: absolute;
+  inset: 4.5rem 0 0 0; 
+  overflow: auto;
+  display: none;
+  background: var(--color-background);
+}
+
+main > section.active {
+  display: block;
+}
+
+.tabs {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 1rem 0;
+  background: var(--color-background);
+}
+
+.tab {
+  font: inherit;
+  padding: .6rem 1rem;
+  border: 1px solid var(--img-border);
+  background: green;
+  color: var(--text-color);
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: .85;
+}
+
+.tab:hover {
+  opacity: 1;
+}
+
+.tab.active {
+  transform: translateY(0);
+  opacity: 1;
+  background-color: rgb(164, 104, 30);
+}
+
+.tab + .tab {
+  margin-left: -10px;
+}
+
 h1, h2 {
   display: flex;
   justify-content: center;
   align-items: flex-start;
   font-family: "Ledlight";
-  font-size: 4em;
-  }
+  font-size: 2em;
+}
+
+h1 {
+  margin: 0em;
+  padding: 0em;
+}
 
 p {
   display: flex;
@@ -57,17 +122,16 @@ p {
   align-items: flex-start;
 }
 
-.travelPics {
+/* .travelPics {
   height: 90vh;
-}
+} */
 
 .gallery {
   display: flex;
   /* padding: 10px;
   padding-top: 3em; */
-  animation: --gallerymove 10s linear infinite;
   animation-name: --gallerymove;
-  animation-duration: 65s;
+  animation-duration: 30s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-direction: alternate-reverse;
@@ -77,9 +141,9 @@ p {
   margin: 0.5em;
   display: block;
   width: auto; 
-  outline: 1px solid; 
+  /* outline: 1px solid; 
   outline-color: var(--img-border);
-  outline-offset: 3px; 
+  outline-offset: 3px;  */
   border-radius: 5px;
 }
 
@@ -105,7 +169,7 @@ p {
   user-select: none;
   -webkit-user-drag: element;
   margin-right: 10px;
-  position: static; /* important */
+  position: static; 
 }
 
 
@@ -113,7 +177,7 @@ p {
   position: relative;
   margin-top: 1rem;
   /* overflow: hidden; */
-  height: 90vh;
+  height: 50vh;
 }
 
 .placedPart {
@@ -126,9 +190,10 @@ p {
   display: block;
 }
 
-
+/* 
 .star-five {
   margin-left: 1.5em;
+  margin-top: 1.5em;
   position: absolute;
   display: block;
   color: var(--img-border);
@@ -141,32 +206,8 @@ p {
   z-index: 999;
 }
 
-.star-five:hover {
-  transform: rotate(300deg);
-  animation-name: --star-fivemove;
-  animation-duration: 5s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: normal;
-
-}
-
-
-@keyframes --star-fivemove {
-  0% {
-    transform: rotate(65deg);
-  }
-  50% {
-    transform: rotate(360deg);
-    /* transform: translate(10em 10em); */
-  }
-
-  100% {
-    transform: rotate(65deg);
-  }
-}
-
 .star-five:before {
+  content: '';
   border-bottom: 14px solid var(--img-border);
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
@@ -176,7 +217,6 @@ p {
   top: -8px;
   left: -12px;
   display: block;
-  content: '';
   transform: rotate(-35deg);
 }
 
@@ -196,9 +236,59 @@ p {
 
 }
 
+.star-five:hover {
+  animation-name: --star-fivemove;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+} */
+
+
+/* @keyframes --star-fivemove {
+  0% {
+    transform: rotate(65deg);
+  }
+  50% {
+    transform: rotate(360deg);
+    transform: translate(10em 10em);
+  }
+
+  100% {
+    transform: rotate(65deg);
+  }
+} */
+
+
+
+.films img{
+  width: 20em;
+  max-width: 100%;
+}
+
+.films li {
+  display: grid;
+  grid-template-areas: 
+  "name name"
+  "filmname image"
+  "filmname image";
+  grid-template-columns: 20em 30em;
+  justify-items: center;
+}
+
+.studentname {
+  grid-area: name;
+}
+.studentfavfilm {
+  grid-area: filmname;
+}
+  
+
+
+
+
 
 @media (max-width: 30em) {
-
   .travelPics {
     height: 50vh;
   }
@@ -227,4 +317,3 @@ p {
     }
   }
 }
-
