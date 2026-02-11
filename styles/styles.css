@@ -1,32 +1,27 @@
-* {
-  box-sizing: border-box;
+@font-face {
+  font-family: 'starfont';
+  src: url('../fonts/star.woff2') format('woff2'),
+      url('../fonts/star.woff') format('woff');
+  font-display: swap;
 }
 
 @font-face {
-  font-family: 'LEDLIGHT';
-  src: url('../fonts/star.woff2') format('woff2'),
-      url('../fonts/star.woff') format('woff');
-  font-weight: 300;
-  font-style: normal;
+  font-family: 'typewriterfont';
+  src: url('../fonts/typewriter2.woff2') format('woff2'),
+      url('../fonts/typewriter2.woff') format('woff');
   font-display: swap;
 }
 
-/* @font-face {
-  font-family: 'LEDLIGHT';
-  src: url('../fonts/LEDLIGHT.woff2') format('woff2'),
-      url('../fonts/LEDLIGHT.woff') format('woff');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-} */
-
-
-
 :root {
   color-scheme: light dark;
-  --color-background: light-dark(#ffffff,#16191a);
-  --img-border: light-dark(#000000, #ffffff);
-  --text-color: light-dark(#000000, #ffffff);
+  --color-background: light-dark(#fbfaf7,#16191a);
+  --text-color: light-dark(#16191a, #fbfaf7);
+  --starbg-color: light-dark(#0c8c4e, #5e3d65);
+  --lbfilm-border: light-dark(#b8b8b8, #2c343f);
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
@@ -34,14 +29,17 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-
 }
-
 
 header {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  background: var(--color-background);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding-bottom: 1em;
 }
 
 main > section:nth-of-type(1) { z-index: 999; }
@@ -50,7 +48,6 @@ main > section:nth-of-type(3) { z-index: 3; }
 main > section:nth-of-type(4) { z-index: 4; }
 
 main {
-  position: relative;
   min-height: 100vh;
 }
 
@@ -73,25 +70,20 @@ main > section.active {
   display: flex;
   gap: 1rem;
   padding: 1rem 1rem 0;
-  background: var(--color-background);
-}
-
-
-.tab:hover {
-  opacity: 1;
 }
 
 .tab.active {
-  opacity: 1;
-  background-color: rgb(108, 70, 110);
+  background-color: var(--starbg-color);
 }
 
-
-h1, h2 {
+h1, h2, p {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  font-family: "Ledlight";
+}
+
+h1, h2 {
+  font-family: "starfont";
   font-size: 4em;
 }
 
@@ -101,12 +93,14 @@ h1 {
 }
 
 p {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  font-family: "typewriterfont";
+  font-size: 1.5em;
+  margin: 0;
 }
 
+/* hulp animatie vasilis */
 .gallery {
+  margin-top: 1em;
   display: flex;
   animation-name: --gallerymove;
   animation-duration: 30s;
@@ -122,31 +116,22 @@ p {
   border-radius: 5px;
 }
 
+/* hulp animatie Vasilis */
 @keyframes --gallerymove {
   from { transform: translateX(0); }
   to { transform: translateX(calc(-600px * 10)); }
 }
 
 .headGame {
-  margin-top: 3rem;
+  margin-top: 3em;
   display: grid;
-  gap: 1rem;
-}
-
-.scramble {
-  width: clamp(90px, 8vw, 100px);
-  cursor: grab;
-  user-select: none;
-  -webkit-user-drag: element;
-  margin-right: 10px;
-  position: static;
-  
 }
 
 .scramble {
   width: 20em;
+  cursor: grab;
+  position: static;  
 }
-
 .dropHead {
   position: relative;
   margin-top: 1rem;
@@ -164,11 +149,12 @@ p {
   display: block;
 }
 
-
+#films {
+  margin-top: 3em;
+}
 .films li {
   display: grid;
 }
-
 
 #letterboxd {
   margin-left: 3em;
@@ -192,7 +178,7 @@ p {
   aspect-ratio: 2 / 3;
   border-radius: 2px;
   overflow: hidden;
-  border: #b8b8b8 solid .5px;
+  border: var(--lbfilm-border) solid .1px;
 }
 
 .lb-poster img {
@@ -207,23 +193,27 @@ p {
 }
 
 .lb-title {
-  font-size: 0.9rem;
-  font-family: cursive;
-  line-height: 1.2;
-  opacity: 0.9;
+  font-size: .9em;
+  font-family: "typewriterfont";
+  line-height: 1;
 }
 
 #studentFilmsList{
   padding: 0;
 }
-
-#refresh {
-  display: block;
-  margin: 2rem auto 0 auto;
-
+.studentname {
+  margin-top: 1em;
+  font-size: 3em;
 
 }
 
+/* van chatgpt om sterretje in het midden te krijgen */
+#refresh {
+  display: block;
+  margin: 2rem auto 2em auto;
+
+}
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/clip-path */
 #refresh, .tab {
   width: 3.2rem;
   height: 3.2rem;
@@ -278,20 +268,26 @@ p {
     to { transform: translateX(calc(-300px * 10)); }
   }
 
+  header {
+    flex-direction: column;
+  }
 
   h1, h2 {
-    display: flex;
-    justify-content: center;
     align-items: flex-start;
-    font-family: "Ledlight";
     font-size: 3em;
   }
 
-  header {
-    flex-direction: column;
+  p {
+    font-size: 1em;
+  }
+
+  h3 {
+    font-size: .5em;
   }
 
   #scramble {
     width: 40em;
   }
 }
+
+

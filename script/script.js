@@ -1,7 +1,13 @@
-// "/person?filter[id][_in]=286, 289"
+// Pick and drop game
+
+// Bronnen:
+// https://dev.to/lensco825/making-a-simple-drag-and-drop-with-js-29l2
+// https://www.w3schools.com/html/html5_draganddrop.asp
+// https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect
+// https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API
+// https://www.reddit.com/r/learnprogramming/comments/7ful05/i_would_like_to_create_a_drag_and_drop_dress_up/
 
 
-// pick and drop game
 const gameSection = document.querySelector(".headGame");
 const headArea = gameSection.querySelector("#head");
 const faceParts = gameSection.querySelectorAll(".scramble");
@@ -37,7 +43,8 @@ headArea.addEventListener("drop", function (event) {
   currentlyDragged = null;
 });
 
-// switch between tabs
+// Switch between tabs
+// Bron: uit mijn eigen code van eerder gemaakte website
 const tabs = document.querySelectorAll(".tabs .tab");
 const sections = document.querySelectorAll("main > section");
 
@@ -97,8 +104,6 @@ const refreshStudent = document.querySelector("#refresh");
 
 refreshStudent.addEventListener("click", loadRandomStudentFilm);
 
-
-// letterboxd last watched rss api
 const container = document.querySelector("#letterboxd");
 const username = "3hos15";
 const rss = `https://letterboxd.com/${username}/rss/`;
@@ -135,20 +140,5 @@ fetch(api)
       container.appendChild(card);
     });
   })
-
-
-// code van de TMDB api
-// const options = {
-//   method: 'GET',
-//   headers: {
-//     accept: 'application/json',
-//     Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1ODNiNWExODE4N2U2ODYzNjcyMjEzZGU0NTAzOWM0ZSIsIm5iZiI6MTc3MDgwMjQ3NS4wODQsInN1YiI6IjY5OGM0ZDJiOTY0NjQ3NzhjYTdiZTU1YyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.NtPJVi7qISnPWOW4c1ob2STqqIQCUXmD2qEE8sTO-74'
-//   }
-// };
-
-// fetch('https://api.themoviedb.org/3/authentication', options)
-//   .then(res => res.json())
-//   .then(res => console.log(res))
-//   .catch(err => console.error(err));
 
 
