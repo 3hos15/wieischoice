@@ -155,6 +155,6 @@ Tijdens de typografie workshop leerde ik over fontlicenties, fallbacks, WOFF2, l
 
 Woensdag deed ik een code check en werkte ik aan consistente naamgeving, het opschonen van CSS en het toevoegen van alt teksten. Ook leerde ik clip-path gebruiken in CSS voor een stervormige knop.
 
-<img src="readmeimages/clippath.png" width="600">
+<img src="readmeimages/clippath.png" width="100">
 
 Een belangrijk onderdeel van deze week was het werken met Letterboxd data. Letterboxd heeft geen officiële API maar wel een RSS-feed in XML. Omdat XML lastig direct te gebruiken is in JavaScript heb ik dit omgezet naar JSON met een rss2json API. Hierdoor kan ik dynamisch filmdata op mijn site tonen.
