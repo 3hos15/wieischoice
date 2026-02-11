@@ -158,3 +158,24 @@ Woensdag deed ik een code check en werkte ik aan consistente naamgeving, het ops
 <img src="readmeimages/clippath.png" width="100">
 
 Een belangrijk onderdeel van deze week was het werken met Letterboxd data. Letterboxd heeft geen officiële API maar wel een RSS-feed in XML. Omdat XML lastig direct te gebruiken is in JavaScript heb ik dit omgezet naar JSON met een rss2json API. Hierdoor kan ik dynamisch filmdata op mijn site tonen.
+
+---
+
+## Bronnen
+
+* https://dev.to/lensco825/making-a-simple-drag-and-drop-with-js-29l2
+
+* https://www.w3schools.com/html/html5_draganddrop.asp
+
+* https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect
+
+* https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API
+
+* https://www.reddit.com/r/learnprogramming/comments/7ful05/i_would_like_to_create_a_drag_and_drop_dress_up/
+
+* https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/clip-path
+
+* https://documentation.alphasoftware.com/documentation/pages/Ref/Client_Api/Client-side%20Templates/temp.xml#:~:text=Temp%20is%20a%20global%20variable,function%20call%20in%20the%20template.
+
+* https://developer.mozilla.org/en-US/docs/Web/Performance/Guides/Lazy_loading
+
