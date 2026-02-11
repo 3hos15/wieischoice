@@ -213,7 +213,7 @@ p {
   opacity: 0.9;
 }
 
-#studentFilmList{
+#studentFilmsList{
   padding: 0;
 }
 
@@ -276,5 +276,22 @@ p {
   @keyframes --gallerymove {
     from { transform: translateX(0); }
     to { transform: translateX(calc(-300px * 10)); }
+  }
+
+
+  h1, h2 {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-family: "Ledlight";
+    font-size: 3em;
+  }
+
+  header {
+    flex-direction: column;
+  }
+
+  #scramble {
+    width: 40em;
   }
 }
