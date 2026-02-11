@@ -76,7 +76,7 @@ const fdndEndpoint =
 
 const fdndUrl = fdndBase + fdndEndpoint;
 
-//random student on site
+//random student for film title
 function pickRandom(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
