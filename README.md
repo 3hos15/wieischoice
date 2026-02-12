@@ -75,6 +75,12 @@ Wat ik deze week vooral heb geleerd is dat het oké is om opnieuw te beginnen en
 
 Een belangrijk verbeterpunt voor mezelf is dat ik mijn proces beter moet bijhouden. Ik wil vaker screenshots maken van mijn code en tussenstappen zodat mijn reflecties duidelijker worden en ik beter kan terugzien hoe mijn project is verlopen.
 
+Mijn leerdoelen voor deze opdracht en voor de toekomst zijn:
+* Nettere code schrijven 
+* Meer met JavaScript werken en het ook echt begrijpen
+* Wat visueler zijn met CSS
+* Beter samen werken met medestudenten
+
 ---
 
 ## Week 2
