@@ -81,6 +81,7 @@ Mijn leerdoelen voor deze opdracht en voor de toekomst zijn:
 * Meer met JavaScript werken en het ook echt begrijpen
 * Wat visueler zijn met CSS
 * Beter samen werken met medestudenten
+* Kritisch zijn op mijn werk
 
 ---
 
