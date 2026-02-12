@@ -15,6 +15,7 @@
 
 Kickoff!!
 Aan het ontwerp gewerkt voor de website en een klein stukje code geschreven.
+[Link naar ontwerp](https://www.figma.com/design/stG09rHO74pxaBNFyQcCyz/wdd-sprint-0-ontwerp?node-id=0-1&t=J5QNgk4Bo6kIVLs1-1)
 
 ### Dag 2 – Woensdag
 
