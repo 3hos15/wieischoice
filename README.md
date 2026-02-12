@@ -11,13 +11,13 @@
 
 ## Week 1
 
-### Dag 1 – Dinsdag
+### Dag 1 – Dinsdag 2 feb
 
 Kickoff!!
 Aan het ontwerp gewerkt voor de website en een klein stukje code geschreven.
 [Link naar ontwerp](https://www.figma.com/design/stG09rHO74pxaBNFyQcCyz/wdd-sprint-0-ontwerp?node-id=0-1&t=J5QNgk4Bo6kIVLs1-1)
 
-### Dag 2 – Woensdag
+### Dag 2 – Woensdag 3 feb
 
 **Wat heb ik vandaag gedaan:**
 API 1 en 2 gevolgd. Verder aan mijn website gewerkt, maar ik was moe dus ik heb niet super veel gedaan. Vooral in oudere code gekeken om er weer in te komen.
@@ -33,7 +33,7 @@ Meer aan mijn website werken en mijn JavaScript beter begrijpen. Jeppe wachtwoor
 
 ---
 
-### Dag 3 – Donderdag
+### Dag 3 – Donderdag 4 feb
 
 **Wat heb ik vandaag gedaan:**
 Ik ben opnieuw begonnen aan mijn site omdat ik mijn idee had omgegooid. Ik werkte aan de HTML drag & drop en animaties van afbeeldingen.
@@ -49,7 +49,7 @@ Verder werken aan de site.
 
 ---
 
-### Dag 4 – Vrijdag
+### Dag 4 – Vrijdag 5 feb
 
 **Wat heb ik vandaag gedaan:**
 Verder gewerkt aan de website, vooral aan de pick & drop afbeeldingen in Illustrator en de vakantie-foto animatie.
@@ -87,7 +87,7 @@ Mijn leerdoelen voor deze opdracht en voor de toekomst zijn:
 
 ## Week 2
 
-### Dag 5 – Maandag
+### Dag 5 – Maandag 9 feb
 
 **Wat heb ik vandaag gedaan:**
 Een klein lesje API inladen opnieuw gevolgd en dit toegepast in mijn website. Verder de hele dag aan de site gewerkt.
@@ -100,7 +100,7 @@ Website persoonlijker maken en code checken.
 
 ---
 
-### Dag 6 – Dinsdag
+### Dag 6 – Dinsdag 10 feb
 
 Workshop typografie:
 
@@ -131,7 +131,7 @@ Vormgeving en TMDB database koppelen aan student API.
 
 ---
 
-### Dag 7 – Woensdag
+### Dag 7 – Woensdag 11 feb
 
 Code check:
 
@@ -150,6 +150,14 @@ Polygon clippath in CSS.
 
 **Wat ga ik morgen doen:**
 README aanvullen.
+
+---
+
+### Dag 7 – Donderdag 12 feb
+
+Presentaties!!
+
+(foto van reflectie inzetten)
 
 ---
 
